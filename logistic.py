@@ -16,7 +16,10 @@ import numpy as np
     [d,n]=size(xTr);
 '''
 def logistic(w,xTr,yTr):
+    
+    print(f'{xTr.shape} {yTr.shape} {w.shape} {xx.shape}')
 
-    # YOUR CODE HERE
+    loss = np.log(1+np.exp(-1 * yTr @ (xTr.transpose() @ w))).sum()
+    gradient = ((np.dot(x,y) @ np.exp(-1 * yTr @ (xTr.transpose() @ w)))/(1+np.exp(-1 * yTr @ (xTr.transpose() @ w)))).sum()
 
     return loss,gradient
