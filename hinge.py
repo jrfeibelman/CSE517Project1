@@ -18,5 +18,7 @@ def hinge(w,xTr,yTr,lambdaa):
 
 
     # YOUR CODE HERE
+    loss = 0
+    gradient = 0
 
     return loss,gradient

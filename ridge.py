@@ -17,5 +17,7 @@ def ridge(w,xTr,yTr,lambdaa):
 # [d,n]=size(xTr);
 
     # YOUR CODE HERE
+    loss = ((linearmodel(w,xTr) - yTr)**2).sum() + lambdaa * (w.transpose() @ w)
+    gradient = 2 * ((linearmodel(w,xTr) - yTr) @ xTr.transpose()).sum() + 2 * lambdaa * w
 
     return loss,gradient
