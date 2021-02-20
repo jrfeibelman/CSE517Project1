@@ -20,8 +20,8 @@ def grdescent(func,w0,stepsize,maxiter,tolerance=1e-02):
         if np.linalg.norm(gradient) < tolerance:
             return w
         
-        if stepSize < eps:
-            stepSize = eps
+        if stepsize < eps:
+            stepsize = eps
         
         deltaW = -1 * stepsize * gradient
         
@@ -30,9 +30,9 @@ def grdescent(func,w0,stepsize,maxiter,tolerance=1e-02):
         nextLoss, gradient = func(w)
                 
         if nextLoss < loss:
-            stepSize *= 1.01
+            stepsize *= 1.01
         else:
-            stepSize *= 0.5
+            stepsize *= 0.5
         
         loss = nextLoss
 
