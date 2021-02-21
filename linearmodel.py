@@ -11,4 +11,4 @@ def linearmodel(w,xTe):
 
     # YOUR CODE HERE
 
-    return (xTe.transpose() @ w)
+    return (xTe.transpose() @ w).transpose()
