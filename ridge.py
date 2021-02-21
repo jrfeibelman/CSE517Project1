@@ -14,13 +14,14 @@ def ridge(w,xTr,yTr,lambdaa):
 # loss = the total loss obtained with w on xTr and yTr
 # gradient = the gradient at w
 #
-# [d,n]=size(xTr);
-
+    d, n = xTr.shape
+#     w = w.reshape(d,1)
     # YOUR CODE HERE
 #     summ = (xTr.transpose() @ w - yTr)**2
-#     print(f'{xTr.shape} {yTr.shape} {w.shape} {summ.shape}')
-    loss = ((xTr.transpose() @ w - yTr)**2).sum() + lambdaa * (w.transpose() @ w)
-    
-    gradient = 2 * ((xTr.transpose() @ w - yTr) @ xTr.transpose()).sum() + 2 * lambdaa * w
-
+    loss = ((xTr.transpose() @ w - yTr.reshape(n,1))**2).sum() + lambdaa * (w.transpose() @ w)
+#     print(f'{xTr.shape} {yTr.shape} {w.shape}')
+#     test = np.subtract(xTr.transpose() @ w, yTr.reshape(n,1))
+    gradient = 2 * (xTr @ (xTr.transpose() @ w - yTr.reshape(n,1) )) + 2 * lambdaa * w
+#     print(f'{loss.shape} {gradient.shape}')
     return loss,gradient
+
