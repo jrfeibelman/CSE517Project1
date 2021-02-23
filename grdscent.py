@@ -38,6 +38,5 @@ def grdescent(func,w0,stepsize,maxiter,tolerance=1e-02):
             stepsize = stepsize * 0.5
             w = w - dW
         
-        print(loss)
 
     return w
